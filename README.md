@@ -6,7 +6,9 @@ This project demonstrates how to use SSIS (SQL Server Integration Services) to m
 
 
 Package Descriptions
+
 There are four packages, each of them represents different attempt and different methods that were utilized to solve problems.
+Package V4 contains a complete solution of the pipeline.
 
 Package V1: Initial data conversion and separation using Conditional Split
 Package V2: Processing data using Script Component and Conditional Split.
