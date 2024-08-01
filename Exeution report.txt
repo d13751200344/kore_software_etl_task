@@ -8,29 +8,18 @@ Although there are still unresolved issues within the packages, I successfully d
 ### Records Successfully Processed
 
 - **Total Records in CSV:** 33
-- **Records Successfully Processed:** 0(number of successfully processed records)
+- **Records Successfully Processed:** 33(number of successfully processed records)
 - **Records Excluded:** 33 (details provided below)
 
+*** Records Successfully Processed
+
+**stg.Users_rawData** (33 rows from Package V3)
+**stg.Users_noConversion** (33 rows from Package V4)
 
 ### Records Excluded
 
-
 **stg.Users_Problem1** (33 rows from Package V3)
-
-UserID | FullName          | Age  | Email                  | RegistrationDate | LastLoginDate | PurchaseTotal
--------|-------------------|------|------------------------|------------------|---------------|---------------
-111    | Alice Johnson     |      | alicejohnson@example.com | 2022-07-15       |               |               
-112    | Bob Marley        | 27   | bobmarley@example.com   | 2021-05-20       | 2023-02-28    |               
-...    | ...               | ...  | ...                    | ...              | ...           | ...
-
-
 **stg.Users_Problem2** (33 rows from Package V4)
-
-UserID | FullName          | Age  | Email                  | RegistrationDate | LastLoginDate | PurchaseTotal
--------|-------------------|------|------------------------|------------------|---------------|---------------
-101    | John Doe          | 30   | johndoe@example.com    | 2024-01-10       | 2023-03-01    | 250.00        
-121    | Kevin Yolt        | abc  | kevinyolt@example.com  | 2021-03-14       | 2023-02-17    |               
-...    | ...               | ...  | ...                    | ...              | ...           | ...
 
 
 ## Challenges and Solutions
