@@ -1,0 +1,45 @@
+# Execution Report for SSIS ETL Process
+
+## Results
+
+
+Although there are still unresolved issues within the packages, I successfully developed a complete ETL pipeline, including extracting data from a source file, data transformation, and loading data into the production table. Once the issues are identified and resolved, the solution will be ready for immediate use.
+
+### Records Successfully Processed
+
+- **Total Records in CSV:** 33
+- **Records Successfully Processed:** 0(number of successfully processed records)
+- **Records Excluded:** 33 (details provided below)
+
+
+### Records Excluded
+
+
+**stg.Users_Problem1** (33 rows from Package V3)
+
+UserID | FullName          | Age  | Email                  | RegistrationDate | LastLoginDate | PurchaseTotal
+-------|-------------------|------|------------------------|------------------|---------------|---------------
+111    | Alice Johnson     |      | alicejohnson@example.com | 2022-07-15       |               |               
+112    | Bob Marley        | 27   | bobmarley@example.com   | 2021-05-20       | 2023-02-28    |               
+...    | ...               | ...  | ...                    | ...              | ...           | ...
+
+
+**stg.Users_Problem2** (33 rows from Package V4)
+
+UserID | FullName          | Age  | Email                  | RegistrationDate | LastLoginDate | PurchaseTotal
+-------|-------------------|------|------------------------|------------------|---------------|---------------
+101    | John Doe          | 30   | johndoe@example.com    | 2024-01-10       | 2023-03-01    | 250.00        
+121    | Kevin Yolt        | abc  | kevinyolt@example.com  | 2021-03-14       | 2023-02-17    |               
+...    | ...               | ...  | ...                    | ...              | ...           | ...
+
+
+## Challenges and Solutions
+
+It could probably be the problem of the source data because either script component or conditional split didn't work.
+Using python to transform data from csv file to xlsx file first and import it as data source may work.
+
+
+### Package Adaptability
+
+- **Handling Changes in Source Data Formats:** The package can be adjusted by modifying the data conversion logic to accommodate new formats.
+- **Database Schema Modifications:** Changes in the database schema can be managed by updating the SSIS package components and mappings.
