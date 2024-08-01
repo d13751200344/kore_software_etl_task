@@ -57,8 +57,11 @@ stg.Users_noConversion (
 Package V3:
 I tried to use 'Execute SQL Task' to separate the Null row from the rest of the rows using Script Component and Conditional Split, and it failed just like before. (I created "stg.Users_rawData" table to process the data.)
 
-steps: get raw data >> store in stg.Users_rawData table >> Exeute SQL Task to set IsNullFlag value based on the values of each data row >> tried to use "Conditional Split" to separate Null data rows from the others, but failed.
-** 33 rows has been processed in stg.Users_Problem1 table
+steps: get raw data -> 
+store in stg.Users_rawData table -> 
+Exeute SQL Task to set IsNullFlag value based on the values of each data row -> 
+tried to use "Conditional Split" to separate Null data rows from the others, but failed.
+** 33 rows has been processed in stg.Users_Problem1 table**
 stg.Users_rawData (
         UserID  NVARCHAR(255),
         FullName NVARCHAR(255),
@@ -75,14 +78,14 @@ stg.Users_rawData (
 
 
 Package V4:
-I utilized V2 Package, and then designed the pipeline from stg.Users_noCoversion, which contains Unicode string data, to prod.Users >>
-I used "Script Component" to create a column "isValid", using script to separate data rows that contain inappropriate data, and led them to different routes.(all data went to the wrong route, stored in stg.Users_Problem2, so failed) >>
-If it's going to valid data types, then I will do Data Conversion to convert all columns data type, and then I will do data cleaning. >>
-I used Script Component & Derived Column to possess Email and PurchaseTotal, and Derived column for checking Age, RegistrationDate and LastLoginDate. >>
-Sorted data, and used Aggregate tools to do data cleaning. Group by UserID, Age, FullName, and Email, keeping earliest RegistrationDate and latest LastLoginDate, and summed up the PurchaseTotal. >>
-Stored data into stg.Users_Transformation table >>
+I utilized V2 Package, and then designed the pipeline from stg.Users_noCoversion, which contains Unicode string data, to prod.Users ->
+I used "Script Component" to create a column "isValid", using script to separate data rows that contain inappropriate data, and led them to different routes.(all data went to the wrong route, stored in stg.Users_Problem2, so failed) ->
+If it's going to valid data types, then I will do Data Conversion to convert all columns data type, and then I will do data cleaning. ->
+I used Script Component & Derived Column to possess Email and PurchaseTotal, and Derived column for checking Age, RegistrationDate and LastLoginDate. ->
+Sorted data, and used Aggregate tools to do data cleaning. Group by UserID, Age, FullName, and Email, keeping earliest RegistrationDate and latest LastLoginDate, and summed up the PurchaseTotal. ->
+Stored data into stg.Users_Transformation table ->
 Update or Insert the data of stg.Users_Transformation table into prod.Users table with the "Execute SQL Task" tool to Load data. 
-** 33 rows has been processed in stg.Users_Problem2 table
+** 33 rows has been processed in stg.Users_Problem2 table **
 The query is:
 `MERGE INTO prod.Users AS target
 USING stg.Users AS source
